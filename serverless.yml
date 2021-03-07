@@ -14,6 +14,7 @@ custom:
     port: 4000
   bundle:
     linting: false
+  stage: dev
 
 provider:
   name: aws
