@@ -45,8 +45,10 @@ provider:
         - dynamodb:ListStream
 
       Resource:
-        - "Fn::GetAtt": [ListingsDB, Arn]
-        - "Fn::GetAtt": [BookingsDB, Arn]
+        # - "Fn::GetAtt": [ListingsDB, Arn]
+        # - "Fn::GetAtt": [BookingsDB, Arn]
+        - "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.ListingsDB}"
+        - "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.BookingsDB}"
 
 functions:
   graphql:
@@ -68,7 +70,9 @@ functions:
 
 resources:
   # - ${file(resources/sqs-queue.yml)}
-  - ${file(resources/table.yml)}
+  # - ${file(resources/table.yml)}
+  - ${file(resources/listing-db.yml)}
+  - ${file(resources/booking-db.yml)}
   # - ${file(resources/s3-bucket.yml)}
   # - ${file(resources/cognito-identity-pool.yml)}
   # - ${file(resources/cognito-user-pool.yml)}
