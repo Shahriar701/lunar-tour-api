@@ -41,6 +41,6 @@ type Listing {
 
 }
 
-`
+`;
 
-export { schema }
+export { schema };

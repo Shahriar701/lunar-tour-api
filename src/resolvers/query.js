@@ -1,20 +1,20 @@
-import * as dynamoDBLib from "../../libs/dynamodb-lib"
+import * as dynamoDBLib from "../../libs/dynamodb-lib";
 
 export const hello = (args, context) => {
-    return "Your GraphQL API is now LIVE!🎈 "
-}
+    return "Your GraphQL API is now LIVE!🎈 ";
+};
 
 export const getAllListings = async(args, context) => {
 
     const params = {
         TableName: process.env.ListingsDB || "dev-listings",
-    }
+    };
 
     try {
-        const result = await dynamoDBLib.call("scan", params)
+        const result = await dynamoDBLib.call("scan", params);
 
         if (result.Items.length === 0) {
-            return "You have no listings"
+            return "You have no listings";
         } else {
             return result.Items.map(i => ({
                 listingId: i.listingId,
@@ -38,7 +38,7 @@ export const getAllListings = async(args, context) => {
                 },
                 price: i.price,
                 numberOfDays: i.numberOfDays,
-            }))
+            }));
         }
 
         // return result;
@@ -46,6 +46,6 @@ export const getAllListings = async(args, context) => {
         return {
             message: e.message,
             code: "500x",
-        }
+        };
     }
-}
+};
