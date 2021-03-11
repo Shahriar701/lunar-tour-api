@@ -5,11 +5,6 @@ const schema = `
 """
 A hello world Query
 """
-type Query {
-     hello: String!
-     getAllListings: [Listing]
-}
-
 type ListingType {
      name: String
 }
@@ -39,6 +34,11 @@ type Listing {
      price: String
      numberOfDays: Int
 
+}
+
+type Query {
+     hello: String!
+     getAllListings: [Listing]
 }
 
 `;

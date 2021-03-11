@@ -16,7 +16,7 @@ console.log("Listings.Init", listings)
 listings.map(l => {
     //create params object
     listingParams = {
-        TableName: "dev-listings",
+        TableName: process.env.ListingsDB || "dev-listings",
         Item: {
             coverPhoto: l.coverPhoto,
             guide: {
