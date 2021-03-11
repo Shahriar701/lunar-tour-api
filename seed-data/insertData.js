@@ -17,7 +17,7 @@ console.log("Listings.Init", listings)
 listings.map(l => {
     //create params object
     listingParams = {
-        TableName: "dev-lunar-listings",
+        TableName: "dev-listings",
         Item: {
             coverPhoto: l.coverPhoto,
             guide: {
