@@ -1,5 +1,4 @@
 /*
-
 this function will allow us to add all the listings into Dynamo dynamically
 */
 
